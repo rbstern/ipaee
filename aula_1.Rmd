@@ -22,7 +22,13 @@ baixado gratuitamente
 **Atenção**: Para instalar o **RStudio**,
 é necessário ter instalado antes o **R**.
 
+- Mais informação sobre a instalação destes softwares
+pode ser obtida [neste site](http://material.curso-r.com/instalacao/).
+
 - Dúvidas sobre o **R** poderão ser tiradas em classe.
+Contudo, os primeiros passos para usar o **R** podem ser 
+encontrados [aqui](http://material.curso-r.com/import/) e 
+[aqui](http://material.curso-r.com/rbase/).
 
 ## Elementos da análise estatística
 
