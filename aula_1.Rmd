@@ -29,6 +29,9 @@ pode ser obtida [neste site](http://material.curso-r.com/instalacao/).
 Contudo, os primeiros passos para usar o **R** podem ser 
 encontrados [aqui](http://material.curso-r.com/import/) e 
 [aqui](http://material.curso-r.com/rbase/).
+Referências mais avançadas estão 
+[aqui](http://r4ds.had.co.nz/) e
+[aqui](https://adv-r.hadley.nz/).
 
 ## Elementos da análise estatística
 
