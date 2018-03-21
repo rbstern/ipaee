@@ -192,12 +192,10 @@ geom_point(color='blue') +
 geom_smooth(method='lm', color = "red")
 ```
 
-
 # Exercícios
 
 1. Construa um boxplot para os dados: 
 2.3, 2000, 0.1, 1.5, 0.3, 0.7, 0.2, 1.7, 1.2
-
 
 2. Parece haver uma relação linear entre o
 comprimento e largura das sépalas
