@@ -8,4 +8,203 @@ output: html_document
 
 # Visualização de dados
 
+Além da apresentação de medidas resumo,
+também é possível resumir a informação
+nos dados por meio de gráficos.
+A seguir, discutimos alguns dos
+principais gráficos usados.
+Para ilustrar estes gráficos,
+usaremos o banco de dados *iris* e
+o banco de dados *adubo*.
+
+```{r, message = FALSE, warning = FALSE}
+library(tidyverse)
+data(iris)
+adubo = read.csv("./data/adubo.csv")
+
+iris = as.tibble(iris)
+adubo = as.tibble(adubo)
+adubo$nitrato = as.factor(adubo$nitrato)
+adubo$fosfato = as.factor(adubo$fosfato)
+```
+
+*Observação*: No **R**, em geral
+existem muitas opções para
+gerar o mesmo gráfico. A seguir,
+mostraremos como gerar gráficos simples
+usando as funções de base do **R** e,
+também, gráficos mais elegantes,
+usando o pacote *ggplot2*.
+Mais informações sobre este pacote estão
+disponíveis [aqui](http://material.curso-r.com/ggplot/).
+
+## Strip chart
+
+O **strip chart** é um gráfico para uma variável
+que é representado em um único eixo e é tal que,
+cada ponto corresponde ao valor de uma observação.
+Ainda que para poucas observações este gráfico
+possa ser informativo, quando 
+há muitas observações ele é de difícil interpretação.
+
+No **R**, o strip chart pode ser obtido
+pelo comando *stripchart()*.
+Por exemplo, no banco de dados de adubos, obtemos:
+
+```{r}
+stripchart(adubo$efeito, xlab="efeito")
+```
+
+Podemos observar, por exemplo, que
+das 20 observações, 
+7 estão concentradas próximo a 1.5.
+Por outro lado, as outras 13 estão 
+dispersas ao redor de 5.
+O gráfico levanta uma pergunta:
+O que nestas 7 observações faz com
+que o efeito da adubação nelas
+seja tão menor do que 
+o nas demais observações?
+
+A seguir, note como é difícil
+interpretar um strip chart produzido
+com 1000 observações:
+
+```{r}
+stripchart(rnorm(1000))
+```
+
+## Box plot
+
+Um **box plot** [@Tukey1977] é 
+um gráfico para visualizar 
+uma única variável que
+consiste em apresentar visualmente
+5 medidas resumo.
+Antes de descrever estas medidas,
+é útil visualizar um boxplot.
+A seguir, obtemos no **R** um
+box plot para o comprimento das
+sépalas no banco de dados *iris*:
+
+```{r}
+boxplot(iris$Sepal.Length, ylab = "Comprimento da sépala")
+```
+
+O box plot contém 5 traços principais.
+O traço em negrito dentro do retângulo indicam
+a mediana (Q2) das observações.
+Os traços nos limites do retângulo indicam
+o primeiro (Q1) e o terceiro (Q3) quartis.
+Assim, observamos que cerca de 50\%
+das observações estão dentro do retângulo e
+que um valor típico para as observações é
+representado pelo traço em negrito.
+A seguir, lembre que o intervalo interquartílico
+(IQR) é definido como $Q3-Q1$.
+Definimos o limite superior (LS) e inferior (LI) como,
+respectivamente, $LS=Q3+1.5*IQR$ e $LI=Q1-1.5*IQR$.
+Os limites das linhas superior e inferior no boxplot
+são, respectivamente, a maior observação menor que LS e
+a menor observação maior que LI.
+Esta é uma faixa de valores tal que seria improvável
+obter uma observação fora dela.
+Observações fora destes limites são representadas
+no boxplot por asteriscos e são comumente chamadas de
+"outliers".
+
+Muitas vezes, é útil separar as observações em grupos e 
+construir boxplots para cada um destes.
+O exemplo a seguir, constrói boxplots para
+o efeito do adubo quando separamos as observações
+em 2 grupos: sem ou com nitrato.
+
+```{r}
+ggplot(aes(y = efeito, 
+           x = nitrato, 
+           color = nitrato), 
+       data = adubo) + 
+geom_boxplot()
+```
+
+Note que, ainda que a mediana no grupo com
+nitrato seja ligeiramente superior à mediana
+do grupo sem nitrato, a diferença entre 
+estes valores é insignificante em relação
+à variabilidade dos dados.
+Esta conclusão é obtida visualmente vendo que
+os retângulos vermelho e azul estão praticamente sobrepostos.
+Este é um cenário em que esperamos que
+não exista diferença nos efeitos dos
+dois tipos de adubo.
+
+Por outro lado, podemos separar as
+observações nos grupos: sem e com fosfato.
+Neste caso, obtemos as figuras:
+
+```{r}
+ggplot(aes(y = efeito, 
+           x = fosfato,
+           color = fosfato), 
+       data = adubo) + geom_boxplot()
+```
+
+Neste caso, observe que a diferença entre
+as medianas de cada grupo é grande em
+relação à variabilidade dos dados.
+Por exemplo, verificamos que 
+os boxplots não tem sobreposição.
+Neste caso, é razoável esperar que
+os adubos com fosfato tenham um efeito maior
+do que os adubos sem fosfato.
+
+## Scatter plot
+
+Por vezes, estamos interessados em
+visualizar a relação entre duas variáveis contínuas.
+Neste caso, podemos designar um eixo para cada variável
+e desenhar um ponto para cada observação.
+Este tipo de gráfico é chamado de **scatter plot**.
+
+No **R** é possível obter o scatter plot
+usando o comando *plot()*.
+A seguir, ilustramos este comando no
+banco de dados *iris* usando como variáveis
+o comprimento e largura das pétalas.
+
+```{r}
+plot(iris$Petal.Length, iris$Petal.Width)
+```
+
+Note que, em média,
+quanto maior o comprimento da pétala,
+maior será a sua largura.
+Mais do que isso, parece haver
+uma relação linear entre estas quantidades.
+É possível ajustar uma reta que aproxima
+esta relação linear entre as observações
+usando o seguinte comando no **R**:
+
+```{r}
+ggplot(aes(x = Petal.Length , y = Petal.Width),
+       data = iris) +
+geom_point(color='blue') +
+geom_smooth(method='lm', color = "red")
+```
+
+
+# Exercícios
+
+1. Construa um boxplot para os dados: 
+2.3, 2000, 0.1, 1.5, 0.3, 0.7, 0.2, 1.7, 1.2
+
+
+2. Parece haver uma relação linear entre o
+comprimento e largura das sépalas
+no banco de dados *iris*? 
+
+3. No banco de dados *iris*, parece
+haver diferença entre o comprimento das sépalas
+entre as 3 espécies observadas?
+
 # Referências 
