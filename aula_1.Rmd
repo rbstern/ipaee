@@ -2,10 +2,11 @@
 title: 'Aula 1: Construção de bancos de dados'
 author: "Rafael Bassi Stern"
 date: "March 14, 2018"
+bibliography: ipaee.bib
 output: html_document
 ---
 
-## Software para análise de dados.
+# Software para análise de dados.
 
 - Neste curso, usarei o software **R** para
 realizar a análise de dados.
@@ -33,7 +34,7 @@ Referências mais avançadas estão
 [aqui](http://r4ds.had.co.nz/) e
 [aqui](https://adv-r.hadley.nz/).
 
-## Elementos da análise estatística
+# Elementos da análise estatística
 
 - A **população** é um conjunto de elementos sobre os quais temos interesse. 
 Por exemplo, se considerarmos as eleições presidencias brasileiras,
@@ -56,8 +57,9 @@ a intenção de voto e o estado de domicílio de cada eleitor.
 - Um **banco de dados** é uma estrutura em que 
 guardamos as observações das características de cada unidade amostral.
 
-- Um **banco de dados Tidy (arrumado)** é um banco de dados
-em formato de matriz em que cada linha corresponde a uma unidade amostral,
+- Um **banco de dados Tidy (arrumado)** [@Wickham2014]
+é um banco de dados em formato de matriz em que 
+cada linha corresponde a uma unidade amostral,
 cada coluna corresponde a uma variável, e 
 a posição na intersecção entre a linha "i" 
 e a coluna "j" corresponde à observação da variável "j" para
@@ -88,11 +90,12 @@ Por outro lado, seria prejudicial anotar no banco de dados
 A inserção de texto em uma variável que deveria ser um número
 quebra padrões e torna muito mais difícil a análise do banco de dados.
 
-### Exemplo de elementos da análise estatística
+## Exemplo de elementos da análise estatística
 
 Em 1936, Edgar Anderson coletou informações 
 sobre flores pertencentes a três espécies do gênero Iris
 (*Iris setosa*, *Iris virginica* e *Iris versicolor*).
+Os dados estão disponíveis em [@Anderson1936].
 Neste caso, consideramos como população
 o conjunto de todas as flores de cada uma das três espécies.
 A amostra é o conjunto de flores que 
@@ -120,7 +123,7 @@ escrever um dicionário como:
 - **Species**: Espécie da unidade amostral.
 Pode assumir os valores "setosa", "versicolor" ou "virginica".
 
-## Tipos de variáveis
+# Tipos de variáveis
 
 É comum dividirmos as variáveis em 4 categorias.
 Estas categorias são úteis para entendermos que 
@@ -191,7 +194,7 @@ Mesmo assim, é mais comum considerarmos o
 peso como variável contínua, pois
 esta abstração é útil.
 
-## Exercícios
+# Exercícios
 
 1. No banco de dados de flores de Anderson,
 classifique o tipo de cada uma das variáveis.
@@ -212,3 +215,5 @@ db = tibble(pais = c("Brasil", "Brasil", "Canada", "Canada"),
             valor = c(207.7, 8.514, 36.2, 9.984))
 print(db)
 ```
+
+# Referências

@@ -1,0 +1,11 @@
+---
+title: "Visualização de dados"
+author: "Rafael Bassi Stern"
+date: "March 21, 2018"
+bibliography: ipaee.bib
+output: html_document
+---
+
+# Visualização de dados
+
+# Referências 
