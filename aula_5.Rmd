@@ -1,0 +1,9 @@
+---
+title: "Probabilidade e variáveis aleatórias"
+author: "Rafael Bassi Stern"
+date: "March 28, 2018"
+bibliography: ipaee.bib
+output: html_document
+---
+
+# Referências 

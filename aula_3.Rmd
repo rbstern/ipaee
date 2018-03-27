@@ -38,7 +38,9 @@ usando o pacote *ggplot2*.
 Mais informações sobre este pacote estão
 disponíveis [aqui](http://material.curso-r.com/ggplot/).
 
-## Strip chart
+## Visualizando uma variável
+
+### Strip chart
 
 O **strip chart** é um gráfico para uma variável
 que é representado em um único eixo e é tal que,
@@ -55,10 +57,10 @@ Por exemplo, no banco de dados de adubos, obtemos:
 stripchart(adubo$efeito, xlab="efeito")
 ```
 
-Podemos observar, por exemplo, que
-das 20 observações, 
-7 estão concentradas próximo a 1.5.
-Por outro lado, as outras 13 estão 
+Por exemplo, note que
+enquanto que 7 das 20 observações, 
+estão concentradas próximo a 1.5,
+as outras 13 estão 
 dispersas ao redor de 5.
 O gráfico levanta uma pergunta:
 O que nestas 7 observações faz com
@@ -66,15 +68,119 @@ que o efeito da adubação nelas
 seja tão menor do que 
 o nas demais observações?
 
+A utilidade do strip chart diminui
+muito quando existem muitos observações,
+uma vez que é difícil extrair informação quando
+há muitos pontos agrupados.
 A seguir, note como é difícil
 interpretar um strip chart produzido
-com 1000 observações:
+com 10.000 observações:
 
 ```{r}
-stripchart(rnorm(1000))
+normais = rnorm(10000)
+stripchart(normais)
 ```
 
-## Box plot
+Em casos como o acima, é
+necessário resumir 
+as observações para obter informação.
+
+### Bar plot e histograma
+
+O **bar plot** e o **histograma** 
+são gráficos que resumem uma variável mais
+do que o strip chart.
+Ao invés de apresentarem um ponto para cada observação,
+estes gráficos indicam a frequência com que 
+cada valor ocorre para uma variável.
+
+O bar plot é usado para variáveis
+qualitativas e quantitativas discretas.
+Ele indica a contagem com que
+cada valor ocorre para esta variável.
+Para criar um barplot no **R**, 
+utilizamos primeiramente o comando *table()*,
+que conta o número de ocorrências para cada observação.
+A seguir, a saída do comando table é
+usada no comando *barplot()*, que exibe o gráfico.
+Esta sequência é ilustrada para as espécies
+do banco de dados iris, a seguir:
+
+```{r}
+contagens = table(iris$Species)
+contagens
+barplot(contagens, xlab = "espécie", ylab = "contagem")
+```
+
+Por sua vez, o histograma é
+usado para variáveis quantitativas contínuas.
+Nestas variáveis, não esperamos encontrar
+duas observações que assumem o mesmo valor.
+Assim, o bar plot é pouco informativo.
+Uma alternativa é dividir os possíveis valores
+em faixas e contar a quantidade de observações
+em cada uma destas faixas.
+O gráfico que indica estas faixas 
+se chama histograma.
+Este gráfico pode ser obtido no **R**
+pelo comando *hist()*,
+conforme ilustrado a seguir:
+
+```{r}
+hist(normais, xlab="valores", ylab="contagem")
+```
+
+Lembre que as 10.000 observações acima
+foram usadas para ilustrar as
+limitações do strip chart.
+Ao contrário do strip chart, 
+o histograma evidencia que
+as observações estão concentradas
+em torno de 0.
+
+Às vezes o formato de ``degraus''
+presente no histograma pode ser indesejável.
+Neste caso, podemos exibir um gráfico de densidade,
+que cria uma curva continua que suaviza 
+os degraus do histograma.
+Uma das vantegens desta curva é 
+eliminar do histograma os vãos que
+são gerados por  faixas sem observações.
+A curva de densidade para 10.000 observações
+é apresentada em vermelha e sobreposta 
+ao histograma para estas observações
+na figura a seguir:
+
+```{r, message = FALSE, warning = FALSE}
+dados = data.frame(var1 = normais)
+ggplot(aes(x = var1), 
+       data = dados) + 
+geom_histogram(aes(y=..density..)) +
+geom_density(color="red") +
+xlab("valores") + ylab("densidade")
+```
+
+Às vezes, o histograma também não
+resume suficientemente as observações.
+Por exemplo, a figura abaixo apresenta
+histogramas de efeito para 
+adubos com e sem nitrato.
+Como existe muita justaposição entre
+os histogramas é difícil
+comparar o efeito de cada adubo.
+
+```{r, message = FALSE, warning = FALSE}
+ggplot(aes(x =  efeito, color = nitrato),
+       data = adubo) +
+geom_histogram()
+```
+
+Para resolver este problema,
+veremos a seguir um gráfico que
+resume as observações ainda mais
+que o histograma.
+
+### Box plot
 
 Um **box plot** [@Tukey1977] é 
 um gráfico para visualizar 
@@ -158,7 +264,9 @@ Neste caso, é razoável esperar que
 os adubos com fosfato tenham um efeito maior
 do que os adubos sem fosfato.
 
-## Scatter plot
+## Visualizando duas variáveis
+
+### Scatter plot
 
 Por vezes, estamos interessados em
 visualizar a relação entre duas variáveis contínuas.
@@ -173,7 +281,9 @@ banco de dados *iris* usando como variáveis
 o comprimento e largura das pétalas.
 
 ```{r}
-plot(iris$Petal.Length, iris$Petal.Width)
+plot(iris$Petal.Length, iris$Petal.Width,
+     xlab="Comprimento da petala",
+     ylab="Largura da petala")
 ```
 
 Note que, em média,
@@ -189,13 +299,15 @@ usando o seguinte comando no **R**:
 ggplot(aes(x = Petal.Length , y = Petal.Width),
        data = iris) +
 geom_point(color='blue') +
-geom_smooth(method='lm', color = "red")
+geom_smooth(method='lm', color = "red") +
+xlab("Comprimento da petala") +
+ylab("Largura da petala")
 ```
 
 # Exercícios
 
 1. Construa um boxplot para os dados: 
-2.3, 2000, 0.1, 1.5, 0.3, 0.7, 0.2, 1.7, 1.2
+2.3, 2000, 0.1, 1.5, 0.3, 0.7, 0.2, 1.7 e 1.2.
 
 2. Parece haver uma relação linear entre o
 comprimento e largura das sépalas
