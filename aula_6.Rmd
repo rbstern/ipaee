@@ -1,0 +1,11 @@
+---
+title: "Distribuições Normal e Chi-Quadrado"
+author: "Rafael Bassi Stern"
+date: "04 de abril de 2018"
+bibliography: ipaee.bib
+output: html_document
+---
+
+# Propriedades de variáveis aleatórias
+
+# Referências 
