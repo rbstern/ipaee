@@ -264,6 +264,11 @@ Elas são mutuamente exclusivas? São independentes?
 Qual é a probabilidade de que, $A$, um número par seja sorteado?
 Qual é a probabilidade de que, $B$, o número 3 ou 6 seja sorteado?
 As duas proposições acima são independentes?
-Verifique se $P(A \textbf{ e } B) = P(A) \cdot P(B)$. 
+Verifique se $P(A \textbf{ e } B) = P(A) \cdot P(B)$.
+
+5. Dividam-se em grupos e arremessem uma moeda várias vezes.
+Construam um banco de dados juntando todos os seus lançamentos.
+Para este banco de dados, esbocem como a proporção de caras
+varia de acordo com o número de lançamentos.
 
 # Referências 

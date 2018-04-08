@@ -8,4 +8,125 @@ output: html_document
 
 # Propriedades de variáveis aleatórias
 
+Uma forma de descrever a incerteza em relação
+a uma variável aleatória é por meio de sua 
+**função de densidade**.
+Se $X$ é uma variável aleatória, geralmente
+designamos a função de densidade de $X$ 
+por $f_{X}(x)$.
+O valor de $f_{X}(x)$ indica o quão plausível é
+que a variável aleatória $X$ assuma o valor $x$.
+Por exemplo, a figura abaixo indica uma
+variável aleatória contínua tal que 
+todos os valores entre 0 e 1 são igualmente plausíveis.
+Por isso, é comum dizer que esta variável aleatória
+tem densidade uniforme entre 0 e 1.
+
+```{r message = FALSE, warning = FALSE}
+library(tidyverse)
+ggplot(data.frame(x = c(0, 1)), aes(x)) + 
+stat_function(fun = dunif, colour="red", n = 100)
+```
+
+Uma propriedade importante de uma função de densidade é que
+podemos obter a probabilidade de que $X$ esteja entre dois valores,
+$x_1$ e $x_2$, calculando a área debaixo da densidade.
+Note que de corre desta propriedade que 
+a área total debaixo da densidade é $1$.
+Por exemplo, a figura abaixo ilustra como
+obter $P(0.25 < X < 0.5)$ quando 
+$X$ tem densidade uniforme entre $0$ e $1$.
+Note que, neste caso, a figura abaixo da curva é 
+um retângulo de base $0.25$ e altura $1$ e, portanto,
+de área $0.25$. Assim, obtemos que 
+$P(0.25 < X < 0.5) = 0.25$.
+Também, a área total debaixo da densidade é
+dada por um quadrado de lado $1$, isto é, $1$.
+Portanto, como esperávamos, $P(0 < X < 1) = 1$.
+
+```{r message = FALSE, warning = FALSE}
+ggplot(data.frame(x = c(0, 1)), aes(x)) + 
+stat_function(fun = dunif, colour="red", n = 100) +
+stat_function(fun = dunif, xlim = c(0.25, 0.5), geom = "area", alpha=0.5) 
+```
+
+De forma geral, a área debaixo de uma curva é
+dada por uma integral.
+Neste curso não usaremos esta relação,
+mas é útil saber que, 
+se $X$ é uma variável contínua, então
+obtemos que
+$$P(x_1 \leq X \leq x_2) = \int_{x_1}^{x_2} f_{X}(x)dx$$
+A função de densidade descreve toda
+a incerteza sobre uma variável aleatória.
+Contudo, pode ser difícil descrever e
+analisar uma função. Assim,
+é comum que certos aspectos de
+uma variável aleatória sejam resumidos 
+em números. A seguir, estudamos
+algumas destas medidas resumo.
+
+- **Esperança** (média populacional): 
+A esperança de uma varíavel aleatória, $X$ é
+denotada por $E[X]$ e descreve
+uma medida de centralidade desta.
+Se imaginarmos que, para cada possível valor, $x$,
+existe um peso de $f_{X}(x)$ na posição $x$, então 
+$E[X]$ descreve o centro de massa desse sistema.
+Também, a média amostral e a esperança resumem 
+a mesma característica.
+Enquanto que a primeira descreve a centralidade para
+uma variável em um banco de dados, 
+uma variável aleatória já observada,
+a segunda descreve a centralidade para uma variável aleatória,
+isto é, descreve a incerteza sobre 
+uma observação antes que esta ocorra.
+De forma técnica, a esperança de 
+uma variável aleatória contínua é 
+calculada da seguinte forma:
+$$E[X] = \int_{-\infty}^{\infty}{x f_{X}(x)dx}$$
+
+- **Variância** (populacional): 
+A variância de uma variável aleatória, $X$, é
+denotada por $V[X]$ e indica um resumo da
+variabilidade desta.
+Assim como a variância amostral descreve 
+a variabilidade de uma variável em um banco de dados (já observado),
+a variância populacional descreve
+a variabilidade de uma variável aleatória (ainda não observada).
+De forma técnica, a variância de 
+uma variável aleatória contínua é 
+calculada da seguinte forma:
+$$V[X] = \int_{-\infty}^{\infty}{(x-E[X])^2 f_{X}(x)}dx$$
+Semelhantemente ao caso da variância amostral,
+a variância populacional não é medida na 
+mesma escala da variável aleatória que ela representa.
+Para obter esta escala, é comum tomar a
+raiz quadrada da variância populacional.
+Esta medida é chamada de **desvio padrão** (populacional).
+Também é comum designarmos a variância de $X$ por
+$\sigma^2_X$. Esta notação é conveniente pois permite
+designarmos o desvio padrão de $X$ por $\sigma_X$.
+
+A seguir, estudaremos 
+algumas funções de densidade
+essenciais para este curso.
+
+# Distribuição normal
+
+
+
+# Distribuição chi-quadrado
+
+# Exercícios
+
+1. Se $X$ tem densidade entre uniforme entre $0$ e $1$ e
+$0 \leq x_1, x_2 \leq 1$, calcule $P(x_1 \leq X \leq x_2)$.
+
+2. Se $X$ tem densidade uniforme entre $1$ e $3$,
+qual é o valor da densidade de $X$ neste intervalo?
+
+3. Calcule a esperança e a variância de uma variável aleatória
+com distribuição uniforme entre $0$ e $1$.
+
 # Referências 
