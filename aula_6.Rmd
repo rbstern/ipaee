@@ -1,5 +1,5 @@
 ---
-title: "Distribuições Normal e Chi-Quadrado"
+title: "Distribuições Normal, chi-quadrado e F"
 author: "Rafael Bassi Stern"
 date: "04 de abril de 2018"
 bibliography: ipaee.bib
@@ -230,6 +230,55 @@ frequentemente chamado de padronização.
 
 ## Teorema Central do Limite
 
+O Teorema Central do Limite é
+um dos resultados mais importantes em Estatística e
+também uma das razões pelas quais 
+a distribuição é tão importante neste curso.
+De forma suscinta, ele dita que, se
+$X_1, \ldots, X_n$ são 
+variáveis aleatórias independentes que
+tem a mesma distribuição e tais que
+$E[X_i] = \mu$ e $V[X_i] = \sigma^2$, então
+a média amostral é aproximadamente normal.
+Mais especificamente,
+$$\bar{X} \approx N\left(\mu,\frac{\sigma^2}{n}\right)$$
+Note que esta aproximação vale
+não importa qual seja
+a distribuição de cada observação.
+Assim, com pouquíssimas suposições é
+possível aproximar a distribuição 
+da média amostral pela normal.
+Se padronizarmos a média amostral,
+obtemos a versão mais usual do
+Teorema do Limite Central:
+$$\frac{\bar{X}-\mu}{\sqrt{\frac{\sigma^2}{n}}} \approx N(0,1)$$
+A figura a seguir é um histograma de
+observações obtidas tomando a média de 
+$100$ variáveis aleatórias uniformes entre $0$ e $1$.
+Note que cada uniforme tem média $0.5$ e as
+médias amostrais estão dispersas em torno deste valor.
+Também, a distribuição uniforme entre $0$ e $1$ tem
+variância $\frac{1}{12}$. Assim,
+o Teorema Central do Limite dita que a
+média de 100 destas distribuições uniformes tem
+desvio padrão $\sqrt{\frac{1}{12 \cdot 100}}$.
+Isto é, neste caso $\bar{X} \approx N(0.5, 0.03)$.
+De fato, observamos na figura que
+a maior parte das observações estão dispersas
+a menos de dois desvios padrões, $0.06$,
+da média populacional, $0.5$.
+
+```{r message = FALSE, warning = FALSE}
+medias = rep(NA, 1000)
+for(ii in 1:1000) 
+{
+  medias[ii] = mean(runif(100, 0, 1))
+}
+ggplot(aes(x = medias), data = data.frame(medias)) +
+geom_histogram(aes(y = ..density..)) +
+geom_density(colour="red")
+```
+
 # Distribuição chi-quadrado
 
 - Se $X$ tem distribuição chi-quadrado
@@ -279,5 +328,21 @@ qual é o valor da densidade de $X$ neste intervalo?
 
 3. Calcule a esperança e a variância de uma variável aleatória
 com distribuição uniforme entre $0$ e $1$.
+
+4. Ache um intervalo tal que uma $N(4,9)$ e
+steja dentro deste com probabilidade aproximadamente $95\%$.
+
+5. Se $X \sim N(4,9)$, utilize o **R** para
+calcular $P(-1 \leq X  \leq 1)$.
+
+6. Se $X \sim N(10, 100)$, indique 
+uma transformação linear de $X$ que tem
+distribuição normal padrão.
+
+7. Se $X_1, \ldots, X_n$ são variáveis independentes
+de mesma distribuição e tais que 
+$E[X_i] = 9$ e $V[X_i] = 16$, indique valores para
+$a$ e $b$ tal que 
+$P(a \leq \bar{X} \leq b) \approx 95\%$.
 
 # Referências 
