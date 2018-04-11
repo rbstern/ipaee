@@ -345,4 +345,16 @@ $E[X_i] = 9$ e $V[X_i] = 16$, indique valores para
 $a$ e $b$ tal que 
 $P(a \leq \bar{X} \leq b) \approx 95\%$.
 
+8. Um pesquisador utilizou uma mesma medida resumo
+em diversas variáveis de seu banco de dados.
+Para visualizar estas medidas, construiu 
+um histograma delas.
+Este histograma se encontra no verso.
+Com base no histograma, argumente se
+a medida resumo poderia ou não ser a média amostral.
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+hist(rbeta(1000, 0.5, 0.5), main = "", xlab = "", ylab = "")
+```
+
 # Referências 

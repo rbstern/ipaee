@@ -271,4 +271,17 @@ Construam um banco de dados juntando todos os seus lançamentos.
 Para este banco de dados, esbocem como a proporção de caras
 varia de acordo com o número de lançamentos.
 
+6. Uma moeda de duas faces simétricas é
+arremessada duas vezes. 
+Seja $A$ a proposição de 
+que o resultado do primeiro lançamento
+foi cara e $B$ a proposição de que
+em ambos os lançamentos ocorreu o mesmo resultado.
+
+a. Determine $P(A)$, $P(B)$, 
+$P(A \textbf{ ou } B)$ e $P(A \textbf{ e } B)$.
+
+b. $A$ e $B$ são independentes? 
+São mutuamente exclusivos?
+
 # Referências 

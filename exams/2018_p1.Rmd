@@ -1,0 +1,81 @@
+---
+title: "Prova 1"
+subtitle: "(150.061) IPAEE"
+date: "05/04/2018"
+output: pdf_document
+---
+
+1. Uma pesquisadora mediu as alturas de $9$ indivíduos,
+apresentadas a seguir:
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+alturas = c(149, 163, 168, 169, 172, 173, 175, 180, 181)
+print(alturas)
+```
+
+ a. Calcule a média e a variância das alturas.
+ 
+ b. Verifique se há algum *outlier* neste
+ banco de dados e descreva o significado
+ deste termo.
+
+2. Um pesquisador está interessado em estudar como 
+varia o percentual de aproveitamento do petróleo em 
+função da temperatura de alimentação do destilador.
+Foram consideradas duas diferentes temperaturas 
+(150 ou 300 graus Celsius) e uma amostra de tamanho $9$ 
+para cada uma destas.
+
+\begin{table}[h]
+ \centering
+ \begin{tabular}{|c|ccccccccc|}
+  \hline
+  Temperatura	& Dados & & & & & & & & \\
+	\hline
+	150 &	8.7 & 20.1 & 7.4 & 6.3 & 10.2 & 6.1 & 7.3 & 6.7 & 7.1 \\
+  300 &	90.1 & 87.7 & 86.5 & 85.4 & 89.9 & 90.3 & 88.4 & 85.2 & 90.4 \\
+  \hline
+ \end{tabular}
+\end{table}
+
+ a. Indique uma medida de centralidade e 
+ uma medida de dispersão para cada
+ uma das temperaturas testadas e interprete-as.
+	
+ b. Esboce um boxplot para
+ o aproveitamento de petróleo para 
+ cada temperatura testada.
+ Interprete os boxplots e compare
+ a diferença entre os aproveitamentos
+ para cada temperatura.
+
+3. O boxplot indica a mediana e
+o intervalo interquartílico de uma variável.
+Quais são possíveis vantagens destas 
+medidas de centralidade e variabilidade em
+relação à média e ao desvio padrão?
+
+4. Uma moeda de duas faces simétricas é
+arremessada duas vezes. 
+Seja $A$ a proposição de 
+que o resultado do primeiro lançamento
+foi cara e $B$ a proposição de que
+em ambos os lançamentos ocorreu o mesmo resultado.
+
+a. Determine $P(A)$, $P(B)$, 
+$P(A \textbf{ ou } B)$ e $P(A \textbf{ e } B)$.
+
+b. $A$ e $B$ são independentes? 
+São mutuamente exclusivos?
+
+5. Um pesquisador utilizou uma mesma medida resumo
+em diversas variáveis de seu banco de dados.
+Para visualizar estas medidas, construiu 
+um histograma delas.
+Este histograma se encontra no verso.
+Com base no histograma, argumente se
+a medida resumo poderia ou não ser a média amostral.
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+hist(rbeta(1000, 0.5, 0.5), main = "", xlab = "", ylab = "")
+```
