@@ -2,7 +2,7 @@
 title: "Prova 1"
 subtitle: "(150.061) IPAEE"
 date: "05/04/2018"
-output: pdf_document
+output: html_document
 ---
 
 1. Uma pesquisadora mediu as alturas de $9$ indivíduos,
