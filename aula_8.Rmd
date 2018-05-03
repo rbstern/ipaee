@@ -1,7 +1,0 @@
----
-title: "Conceitos de testes de hipótese"
-author: "Rafael Bassi Stern"
-date: "April 18, 2018"
-output: html_document
----
-

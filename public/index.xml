@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rafael Bassi Stern</title>
+    <link>/</link>
+    <description>Recent content on Rafael Bassi Stern</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>(150.061) Introdução ao Planejamento e à Análise Estatística de Experimentos</title>
+      <link>/grades/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/grades/</guid>
+      <description>NotasPara manter sua anonimidade, as notas estão indexadas pelos 4 últimos algarismos do seu número RA.
+Caso o seu número RA esteja marcado com um (*), isto indica que existe evidência que você desrespeitou o código de ética desta disciplina. Tome cuidado! Caso o seu número RA esteja marcado com um (**), está provado que você desrespeitou o código de ética desta disciplina e você está reprovado.</description>
+    </item>
+    
+    <item>
+      <title>(150.061) Introdução ao planejamento e à análise estatística de experimentos</title>
+      <link>/syllabus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/syllabus/</guid>
+      <description>Contato{&#34;x&#34;:{&#34;filter&#34;:&#34;none&#34;,&#34;data&#34;:[[&#34;nome&#34;,&#34;email&#34;,&#34;tira-dúvidas&#34;],[&#34;Rafael Bassi Stern&#34;,&#34;rbstern@gmail.com&#34;,&#34;a definir&#34;]],&#34;container&#34;:&#34;\n \n \n variaveis\n Instrutor\n \n \n&#34;,&#34;options&#34;:{&#34;dom&#34;:&#34;t&#34;,&#34;order&#34;:[],&#34;autoWidth&#34;:false,&#34;orderClasses&#34;:false}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}Aulas : 2a, 14h-16h; e 4a, 14h-16h
+Instruções para o envio de e-mails: Por favor adicione ``[IPAEE]’’ ao tópico de e-mails relacionados a este curso. O envio de e-mail deve ser tratado como uma comunicação profissional. Evite o uso de abreviações, acrônimos e gírias nos e-mails. Não garanto que lerei e-mails fora destas especificações!</description>
+    </item>
+    
+  </channel>
+</rss>
