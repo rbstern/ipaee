@@ -7,61 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 18 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title></title>
-      <link>/post/aula_7/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/post/aula_7/</guid>
-      <description>Parâmetros e intervalos de confiançacode{white-space: pre;}pre:not([class]) {background-color: white;}if (window.hljs) {hljs.configure({languages: []});hljs.initHighlightingOnLoad();if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) {window.setTimeout(function() { hljs.initHighlighting(); }, 0);}}h1 {font-size: 34px;}h1.title {font-size: 38px;}h2 {font-size: 30px;}h3 {font-size: 24px;}h4 {font-size: 18px;}h5 {font-size: 16px;}h6 {font-size: 12px;}.</description>
-    </item>
-    
-    <item>
-      <title></title>
+      <title>Aula 8 - Conceitos de testes de hipótese</title>
       <link>/post/aula_8/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 18 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/aula_8/</guid>
-      <description>Conceitos de testes de hipótesecode{white-space: pre;}pre:not([class]) {background-color: white;}if (window.hljs) {hljs.configure({languages: []});hljs.initHighlightingOnLoad();if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) {window.setTimeout(function() { hljs.initHighlighting(); }, 0);}}h1 {font-size: 34px;}h1.title {font-size: 38px;}h2 {font-size: 30px;}h3 {font-size: 24px;}h4 {font-size: 18px;}h5 {font-size: 16px;}h6 {font-size: 12px;}.</description>
+      <description></description>
     </item>
     
     <item>
-      <title>Aula 1: Construção de bancos de dados</title>
-      <link>/post/aula_1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Aula 7 - Parâmetros e intervalos de confiança</title>
+      <link>/post/aula_7/</link>
+      <pubDate>Mon, 16 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/aula_1/</guid>
-      <description>Software para análise de dados.Neste curso, usarei o software R para realizar a análise de dados.
-O R pode ser baixado por exemplo, neste site. Atenção: No Windows, para instalar o R é necessário rodar o instalador em modo administrador.
-O software Rstudio torna o uso do R ainda mais simples. O Rstudio pode ser baixado gratuitamente neste site. Atenção: Para instalar o RStudio, é necessário ter instalado antes o R.</description>
+      <guid>/post/aula_7/</guid>
+      <description>Inferência estatística e parâmetrosA inferência estatística consiste em fazer afirmações sobre características de uma população a partir de amostras desta. A partir deste ponto, estudaremos diversos métodos de inferência estatística.
+Para que seja possível fazer inferência estatística, a probabilidade descreve como a amostra se relaciona com a população. Por exemplo, podemos considerar \(10\) medições de um objeto com \(15\) cm de comprimento usando uma régua cujo desvio padrão é \(0.</description>
     </item>
     
     <item>
-      <title>Distribuições Normal, chi-quadrado e F</title>
+      <title>Aula 6 - Distribuições Normal, chi-quadrado e F</title>
       <link>/post/aula_6/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/aula_6/</guid>
       <description>Propriedades de variáveis aleatóriasUma forma de descrever a incerteza em relação a uma variável aleatória é por meio de sua função de densidade. Se \(X\) é uma variável aleatória, geralmente designamos a função de densidade de \(X\) por \(f_{X}(x)\). O valor de \(f_{X}(x)\) indica o quão plausível é que a variável aleatória \(X\) assuma o valor \(x\). Por exemplo, a figura abaixo indica uma variável aleatória contínua tal que todos os valores entre 0 e 1 são igualmente plausíveis.</description>
     </item>
     
     <item>
-      <title>Medidas resumo</title>
-      <link>/post/aula_2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/post/aula_2/</guid>
-      <description>Medidas resumoOs resultados de um experimento geralmente apresentam variabilidade. Esta variabilidade pode acontecer, por exemplo, por falta de controle nas condições experimentais ou por erros de medição. Assim, se obtivermos um número elevado de observações, pode ser difícil obter informações relevantes meramente olhando para o banco de dados. Por exemplo, os números a seguir são os comprimento das pétalas nas 150 observações do banco de dados Iris (Anderson 1936). O que você consegue observar?</description>
-    </item>
-    
-    <item>
-      <title>Variáveis aleatórias e Probabilidade</title>
+      <title>Aula 5 - Variáveis aleatórias e Probabilidade</title>
       <link>/post/aula_5/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/aula_5/</guid>
       <description>Variáveis aleatóriasÉ comum que desejemos generalizar as conclusões que obtemos de um banco de dados para uma população. Por exemplo, no banco de dados de adubos, amostras de adubo com fosfato em geral tem um efeito maior que amostras de adubo sem fosfato. Será verdade, fora de nossa amostra, que adubos com fosfato tem efeito superior a adubos sem fosfato?
@@ -69,13 +51,33 @@ Para responder a questões como essa, é preciso desenvolver uma ferramenta que 
     </item>
     
     <item>
-      <title>Visualização de dados</title>
+      <title>Aulas 3 e 4 - Visualização de dados</title>
       <link>/post/aula_3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 26 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/aula_3/</guid>
       <description>Visualização de dadosAlém da apresentação de medidas resumo, também é possível resumir a informação nos dados por meio de gráficos. A seguir, discutimos alguns dos principais gráficos usados. Para ilustrar estes gráficos, usaremos o banco de dados iris e o banco de dados adubo.
 library(tidyverse)data(iris)adubo = read.csv(&amp;quot;./data/adubo.csv&amp;quot;)iris = as.tibble(iris)adubo = as.tibble(adubo)adubo$nitrato = as.factor(adubo$nitrato)adubo$fosfato = as.factor(adubo$fosfato)Observação: No R, em geral existem muitas opções para gerar o mesmo gráfico.</description>
+    </item>
+    
+    <item>
+      <title>Aula 2 - Medidas resumo</title>
+      <link>/post/aula_2/</link>
+      <pubDate>Mon, 19 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/aula_2/</guid>
+      <description>Medidas resumoOs resultados de um experimento geralmente apresentam variabilidade. Esta variabilidade pode acontecer, por exemplo, por falta de controle nas condições experimentais ou por erros de medição. Assim, se obtivermos um número elevado de observações, pode ser difícil obter informações relevantes meramente olhando para o banco de dados. Por exemplo, os números a seguir são os comprimento das pétalas nas 150 observações do banco de dados Iris (Anderson 1936). O que você consegue observar?</description>
+    </item>
+    
+    <item>
+      <title>Aula 1 - Construção de bancos de dados</title>
+      <link>/post/aula_1/</link>
+      <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/aula_1/</guid>
+      <description>Software para análise de dados.Neste curso, usarei o software R para realizar a análise de dados.
+O R pode ser baixado por exemplo, neste site. Atenção: No Windows, para instalar o R é necessário rodar o instalador em modo administrador.
+O software Rstudio torna o uso do R ainda mais simples. O Rstudio pode ser baixado gratuitamente neste site. Atenção: Para instalar o RStudio, é necessário ter instalado antes o R.</description>
     </item>
     
   </channel>

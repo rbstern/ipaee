@@ -1,7 +1,7 @@
 ---
-title: "Conceitos de testes de hipótese"
+title: "Aula 8 - Conceitos de testes de hipótese"
 author: "Rafael Bassi Stern"
-date: "April 18, 2018"
+date: 2018-04-18
 output: html_document
 ---
 

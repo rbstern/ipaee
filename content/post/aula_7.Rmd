@@ -1,7 +1,7 @@
 ---
-title: "Parâmetros e intervalos de confiança"
+title: "Aula 7 - Parâmetros e intervalos de confiança"
 author: "Rafael Bassi Stern"
-date: "April 16, 2018"
+date: 2018-04-16
 output: html_document
 ---
 
