@@ -22,8 +22,8 @@ paginate = 10
 [menu]
   # Shown in the side menu.
   [[menu.main]]
-    name = "Noticias"
-    pre = "<i class='fa fa-newspaper fa-fw'></i>"
+    name = "Novidades"
+    pre = "<i class='fa fa-list fa-fw'></i>"
     weight = 1
     identifier = "home"
     url = "/"
@@ -38,19 +38,13 @@ paginate = 10
     pre = "<i class='fa fa-university fa-fw'></i>"
     weight = 3
     identifier = "aulas"
-    url = "/aulas/"
+    url = "/post/"
   [[menu.main]]
     name = "Notas"
     pre = "<i class='fa fa-cogs fa-fw'></i>"
     weight = 3
     identifier = "grades"
     url = "/grades/"
-  [[menu.main]]
-    name = "Posts"
-    pre = "<i class='fa fa-list fa-fw'></i>"
-    weight = 4
-    identifier = "post"
-    url = "/post/"
   [[menu.main]]
     name = "Dados"
     pre = "<i class='fa fa-cogs fa-fw'></i>"

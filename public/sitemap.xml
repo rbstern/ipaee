@@ -3,11 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/aula_7/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/aula_8/</loc>
+  </url>
+  
+  <url>
     <loc>/grades/</loc>
   </url>
   
   <url>
     <loc>/syllabus/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/aula_1/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/aula_6/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/aula_2/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -23,6 +48,14 @@
   <url>
     <loc>/topics/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/aula_5/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/aula_3/</loc>
   </url>
   
 </urlset>
