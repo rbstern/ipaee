@@ -17,7 +17,7 @@ paginate = 10
   disqus = "rafaelstern"
   # CSS name for highlight.js
   highlightjs = "androidstudio"
-  dateFormat = "02 Jan 2006, 15:04"
+  dateFormat = "02 Jan 2006"
 
 [menu]
   # Shown in the side menu.
@@ -41,16 +41,21 @@ paginate = 10
     url = "/post/"
   [[menu.main]]
     name = "Notas"
-    pre = "<i class='fa fa-cogs fa-fw'></i>"
+    pre = "<i class='fa fa-file fa-fw'></i>"
     weight = 3
     identifier = "grades"
     url = "/grades/"
   [[menu.main]]
     name = "Dados"
     pre = "<i class='fa fa-cogs fa-fw'></i>"
-    weight = 5
+    weight = 4
     identifier = "dados"
     url = "/dados/"
+  [[menu.main]]
+    name = "Meu site"
+    pre = "<i class='fa fa-phone fa-fw'></i>"
+    weight = 5
+    url = "https://www.rafaelstern.science"
 
 [social]
   # Link your social networking accouns to the side menu
