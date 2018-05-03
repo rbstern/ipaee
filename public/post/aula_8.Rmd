@@ -1,7 +1,0 @@
----
-title: "Aula 8 - Conceitos de testes de hipótese"
-author: "Rafael Bassi Stern"
-date: 2018-04-18
-output: html_document
----
-
