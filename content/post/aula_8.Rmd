@@ -41,6 +41,15 @@ Assim, existem $4$ combinações de resultados possíveis:
 
 Estas combinações podem ser representadas na seguinte tabela:
 
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(knitr)
+erros = data.frame(V1 = c("Rejeita H", "Não rejeita H"),
+                   V2 = c("Erro tipo I", "Acerto"),
+                   V3 = c("Acerto", "Erro tipo II"))
+names(erros) = c("", "H é verdadeira", "H é falsa")
+kable(erros)
+```
+
 \begin{tabular}{|c|cc|}
  \hline
                    & $H_0$ verdadeira & $H_0$ falsa  \\
