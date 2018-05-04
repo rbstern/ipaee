@@ -62,8 +62,8 @@ output: html_document
 <p>Isto é, <span class="math inline">\([7.34, 8.65]\)</span> é um intervalo de confiança <span class="math inline">\(95\%\)</span> para <span class="math inline">\(\mu\)</span>.</p>
 </div>
 </div>
-<div id="normal-com-variancia-conhecida-1" class="section level2">
-<h2>Normal com variância conhecida</h2>
+<div id="normal-com-variancia-desconhecida" class="section level2">
+<h2>Normal com variância desconhecida</h2>
 <p>Quando <span class="math inline">\(X_1,\ldots,X_n\)</span> são independentes e <span class="math inline">\(X_i \sim N(\mu, \sigma^2)\)</span>, sendo tanto <span class="math inline">\(\mu\)</span> quanto <span class="math inline">\(\sigma\)</span> desconhecidos, não é possível construir o intervalo de confiança da mesma forma que na seção anterior.</p>
 <p>Neste caso, usamos o fato de que <span class="math display">\[
  \frac{\sqrt{n-1}(\bar{X}-\mu)}{S} \sim T_{n-1}
@@ -90,7 +90,7 @@ for(ii in 1:num_experimentos)
   sucessos = sucessos + (mu &gt; l1 &amp; mu &lt; l2)
 }
 sucessos/num_experimentos</code></pre>
-<pre><code>## [1] 0.9518</code></pre>
+<pre><code>## [1] 0.9515</code></pre>
 </div>
 </div>
 <div id="exercicios" class="section level1">

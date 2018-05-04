@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://www.rafaelstern.science/classes/2018_1_ipaee/"
 languageCode = "en-us"
 title = "Rafael Bassi Stern"
 theme = "blackburn"
@@ -16,6 +16,7 @@ paginate = 10
   brand = "Rafael Stern"
   disqus = "rafaelstern"
   # CSS name for highlight.js
+  googleAnalytics = "UA-114310932-1"
   highlightjs = "androidstudio"
   dateFormat = "02 Jan 2006"
 

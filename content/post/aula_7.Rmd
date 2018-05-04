@@ -161,7 +161,7 @@ para $\mu$ da seguinte forma.
 Isto é, $[7.34, 8.65]$ é um intervalo
 de confiança $95\%$ para $\mu$.
 
-## Normal com variância conhecida
+## Normal com variância desconhecida
 
 Quando $X_1,\ldots,X_n$ são independentes e
 $X_i \sim N(\mu, \sigma^2)$, sendo 

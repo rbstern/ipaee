@@ -299,6 +299,20 @@ geom_density(colour="red")
   a chi-quadrado por meio dos comandos
   *dchisq* e *pchisq*.
 
+# DistribuiÁ„o T de Student
+
+- Designamos a distribuiÁ„o $T$ de Student com
+$n$ graus de liberdade por $T_{n}$.
+
+- Se $Z \sim N(0,1)$ e $S^2 \sim \chi^2_n$ s„o
+  vari·veis independentes, ent„o
+  $\frac{Z}{\sqrt{\frac{S^2}{n}}} \sim T_{n}$.
+
+- No **R**, podemos obter
+  a densidade e $P(X \leq x)$ para
+  a T de Student por meio dos comandos
+  *dt* e *pt*.
+
 # Distribui√ß√£o F de Snedcor
 
 - Se $X$ tem distribui√ß√£o $F$ com par√¢metros

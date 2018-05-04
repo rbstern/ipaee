@@ -5,3 +5,50 @@ date: 2018-04-18
 output: html_document
 ---
 
+# Testes de hipótese
+
+É comum que queiramos saber o quanto
+uma amostra corrobora uma hipótese científica.
+Neste caso, podemos aplicar um teste de hipótese,
+isto é, um procedimento que decidirá se
+a hipótese é ou não rejeitada diante da amostra obtida.
+
+Por exemplo, considere que $X_{1}, \ldots, X_{n}$ são
+observações independentes realizadas com uma régua ao
+medir um determinado objeto. Suponha que 
+$X_{i} \sim N(\mu, \sigma_0^2)$, onde $\sigma_0^2$ é
+conhecido e indica precisão das medidas feitas com a régua.
+Uma pessoa poderia estar interessada na hipótese 
+de que o objeto tem $15$ cm. Formalmente, 
+chamamos esta hipótese de **hipótese nula** e
+a representamos por $H_0: \mu = 15$.
+Gostaríamos de saber se é possível 
+rejeitar $H_0$ com base nos dados.
+
+## Tipos de erro
+
+Existem $4$ possíveis resultados que
+podem decorrer de um teste de hipótese.
+Note que o teste de hipótese pode rejeitar ou
+não rejeitar a hipótese nula e, também,
+esta hipótese pode ser verdadeira ou falsa.
+Assim, existem $4$ combinações de resultados possíveis:
+
+- (Acerto) A hipótese nula é verdadeira e não é rejeitada.
+- (Acerto) A hipótese nula é falsa e é rejeitada.
+- (Erro tipo I) A hipótese nula é verdadeira e é rejeitada.
+- (Erro tipo II) A hipótese nula é falsa e não é rejeitada.
+
+Estas combinações podem ser representadas na seguinte tabela:
+
+\begin{tabular}{|c|cc|}
+ \hline
+                   & $H_0$ verdadeira & $H_0$ falsa  \\
+ Rejeita $H_0$     & Erro tipo I      & Acerto       \\
+ Não rejeita $H_0$ & Acerto           & Erro tipo II \\
+ \hline
+\end{tabular}
+
+
+
+
