@@ -50,14 +50,35 @@ names(erros) = c("", "H é verdadeira", "H é falsa")
 kable(erros)
 ```
 
-\begin{tabular}{|c|cc|}
- \hline
-                   & $H_0$ verdadeira & $H_0$ falsa  \\
- Rejeita $H_0$     & Erro tipo I      & Acerto       \\
- Não rejeita $H_0$ & Acerto           & Erro tipo II \\
- \hline
-\end{tabular}
+Note que existe um balanço entre 
+os erros tipo I e II.
+Por exemplo, se quiséssemos 
+que a probabilidade de cometer 
+um erro tipo I fosse 0, 
+então poderíamos nunca rejeitar H.
+Contudo, neste caso, 
+a probabilidade de cometer 
+um erro tipo II seria 1.
+Analogamente, se sempre rejeitarmos H,
+então as probabilidades de erro tipo I e II
+serão, respectivamente, 1 e 0.
+Na prática, rejeitamos $H_0$ quando 
+os dados oferecem evidência contrária a este hipótese.
+Assim, buscamos que as probabilidades de cometer
+um erro tipo I ou um erro tipo II sejam baixas.
 
+Uma outra observação importante é que,
+em geral, não sabemos se cometemos um erro em um teste de hipótese.
+Para saber se $H_0$ é verdadeiro ou não,
+seria necessária observar a população.
+Como apenas somos capazes de observar a amostra,
+não somos capazes de determinar se $H_0$ é verdadeiro ou não.
+Assim, não sabemos se o resultado do teste de hipótese
+foi um acerto ou um erro.
 
-
+Apesar da limitação acima, podemos controlar 
+as probabilidades de erro tipo I e II de um teste.
+Isto é, podemos desenvolver testes que,
+antes de observar o banco de dados, tenham
+uma baixa probabilidade de cometer um erro.
 
