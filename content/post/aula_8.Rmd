@@ -41,7 +41,7 @@ Assim, existem $4$ combinações de resultados possíveis:
 
 Estas combinações podem ser representadas na seguinte tabela:
 
-```{r echo = FALSE, message = FALSE, warning = FALSE}
+```{r message = FALSE, warning = FALSE}
 erros = data.frame(V1 = c("Rejeita H", "Não rejeita H"),
                    V2 = c("Erro tipo I", "Acerto"),
                    V3 = c("Acerto", "Erro tipo II"))
