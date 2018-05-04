@@ -5,6 +5,15 @@ date: 2018-04-18
 output: html_document
 ---
 
+<script src="/classes/2018_1_ipaee/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/classes/2018_1_ipaee/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/classes/2018_1_ipaee/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="/classes/2018_1_ipaee/rmarkdown-libs/datatables-binding/datatables.js"></script>
+<link href="/classes/2018_1_ipaee/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="/classes/2018_1_ipaee/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="/classes/2018_1_ipaee/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="/classes/2018_1_ipaee/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/classes/2018_1_ipaee/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
 
 
 <div id="testes-de-hipotese" class="section level1">
@@ -21,29 +30,16 @@ output: html_document
 <li>(Erro tipo II) A hipótese nula é falsa e não é rejeitada.</li>
 </ul>
 <p>Estas combinações podem ser representadas na seguinte tabela:</p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th align="left">H é verdadeira</th>
-<th align="left">H é falsa</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Rejeita H</td>
-<td align="left">Erro tipo I</td>
-<td align="left">Acerto</td>
-</tr>
-<tr class="even">
-<td>Não rejeita H</td>
-<td align="left">Acerto</td>
-<td align="left">Erro tipo II</td>
-</tr>
-</tbody>
-</table>
+<div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","data":[["Rejeita H","Não rejeita H"],["Erro tipo I","Acerto"],["Acerto","Erro tipo II"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th><\/th>\n      <th>H é verdadeira<\/th>\n      <th>H é falsa<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>Note que existe um balanço entre os erros tipo I e II. Por exemplo, se quiséssemos que a probabilidade de cometer um erro tipo I fosse 0, então poderíamos nunca rejeitar H. Contudo, neste caso, a probabilidade de cometer um erro tipo II seria 1. Analogamente, se sempre rejeitarmos H, então as probabilidades de erro tipo I e II serão, respectivamente, 1 e 0. Na prática, rejeitamos <span class="math inline">\(H_0\)</span> quando os dados oferecem evidência contrária a este hipótese. Assim, buscamos que as probabilidades de cometer um erro tipo I ou um erro tipo II sejam baixas.</p>
 <p>Uma outra observação importante é que, em geral, não sabemos se cometemos um erro em um teste de hipótese. Para saber se <span class="math inline">\(H_0\)</span> é verdadeiro ou não, seria necessária observar a população. Como apenas somos capazes de observar a amostra, não somos capazes de determinar se <span class="math inline">\(H_0\)</span> é verdadeiro ou não. Assim, não sabemos se o resultado do teste de hipótese foi um acerto ou um erro.</p>
 <p>Apesar da limitação acima, podemos controlar as probabilidades de erro tipo I e II de um teste. Isto é, podemos desenvolver testes que, antes de observar o banco de dados, tenham uma baixa probabilidade de cometer um erro.</p>
+<p>Convecionou-se que a hipótese nula deve ser escolhida de tal forma que o erro tipo I seja mais grave que o erro tipo II. Por exemplo, é mais grave concluir que um rio não está poluído quando ele está poluído do que concluir que ele está poluído quando de fato não está. Assim, neste caso, tomaríamos a hipótese nula como aquela de que o rio está poluído, pois assim o erro tipo I seria o de rejeitar que o rio está poluído quando ele de fato está.</p>
+<p>Como o erro tipo I é o mais grave, construímos testes de hipótese que diretamente controlam a probabilidade de erro tipo I. Formalmente, determinaremos testes de hipótese tais que o erro tipo I seja menor que um valor pré-determinado, <span class="math inline">\(\alpha\)</span>. É comum que <span class="math inline">\(\alpha\)</span> seja chamado de <strong>nível de significância</strong> do teste.</p>
+</div>
+<div id="exemplo-normal-com-variancia-conhecida" class="section level2">
+<h2>Exemplo: normal com variância conhecida</h2>
+<p>Considere que <span class="math inline">\(X_{1},\ldots,X_{n}\)</span> são observações independentes e tais que <span class="math inline">\(X_{i} \sim N(\mu,\sigma_0^2)\)</span>, onde <span class="math inline">\(\sigma_0^2\)</span> é conhecido. Por exemplo, <span class="math inline">\(X_i\)</span> pode ser o peso da <span class="math inline">\(i\)</span>-ésima vaca alimentada com uma determinada ração. Deseja-se provar que o peso médio de vacas alimentadas com esta ração seja maior que <span class="math inline">\(500 kg\)</span>, ou seja, a hipótese nula é <span class="math inline">\(H_0: \mu \leq 500\)</span>.</p>
 </div>
 </div>
