@@ -294,18 +294,23 @@ geom_density(colour="red")
   cada qual tem distribui√ß√£o $\chi^2_1$, ent√£o
   $\sum_{i=1}^n X_i \sim \chi^2_n$.
   
+- Se $X_1, \ldots, X_n$ s√£o vari√°veis independentes e
+  tais que $X_{i} \sim N(\mu, \sigma^2)$, ent√£o
+  $\frac{\sum_{i1=}^{n}(X_i-\bar{X})^2}{\sigma^2} \sim \chi^2_{n-1}$,
+  ou seja, $\frac{S^2}{\sigma^2} \sim \chi^2_{n-1}$.
+  
 - No **R**, podemos obter
   a densidade e $P(X \leq x)$ para
   a chi-quadrado por meio dos comandos
   *dchisq* e *pchisq*.
 
-# DistribuiÁ„o T de Student
+# Distribui??o T de Student
 
-- Designamos a distribuiÁ„o $T$ de Student com
+- Designamos a distribui??o $T$ de Student com
 $n$ graus de liberdade por $T_{n}$.
 
-- Se $Z \sim N(0,1)$ e $S^2 \sim \chi^2_n$ s„o
-  vari·veis independentes, ent„o
+- Se $Z \sim N(0,1)$ e $S^2 \sim \chi^2_n$ s?o
+  vari?veis independentes, ent?o
   $\frac{Z}{\sqrt{\frac{S^2}{n}}} \sim T_{n}$.
 
 - No **R**, podemos obter

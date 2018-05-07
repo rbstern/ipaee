@@ -5,15 +5,15 @@ date: 2018-04-18
 output: html_document
 ---
 
-<script src="/classes/2018_1_ipaee/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="/classes/2018_1_ipaee/rmarkdown-libs/jquery/jquery.min.js"></script>
-<link href="/classes/2018_1_ipaee/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-<script src="/classes/2018_1_ipaee/rmarkdown-libs/datatables-binding/datatables.js"></script>
-<link href="/classes/2018_1_ipaee/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="/classes/2018_1_ipaee/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="/classes/2018_1_ipaee/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
-<link href="/classes/2018_1_ipaee/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
-<script src="/classes/2018_1_ipaee/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/datatables-binding/datatables.js"></script>
+<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
 
 
 <div id="testes-de-hipotese" class="section level1">
@@ -31,7 +31,7 @@ output: html_document
 </ul>
 <p>Estas combinações podem ser representadas na seguinte tabela:</p>
 <div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","data":[["Rejeita H","Não rejeita H"],["Erro tipo I","Acerto"],["Acerto","Erro tipo II"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th><\/th>\n      <th>H é verdadeira<\/th>\n      <th>H é falsa<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","data":[["Rejeita H","Não rejeita H"],["Erro tipo I","Acerto"],["Acerto","Erro tipo II"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th><\/th>\n      <th>H é verdadeira<\/th>\n      <th>H é falsa<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"ti","order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>Note que existe um balanço entre os erros tipo I e II. Por exemplo, se quiséssemos que a probabilidade de cometer um erro tipo I fosse 0, então poderíamos nunca rejeitar H. Contudo, neste caso, a probabilidade de cometer um erro tipo II seria 1. Analogamente, se sempre rejeitarmos H, então as probabilidades de erro tipo I e II serão, respectivamente, 1 e 0. Na prática, rejeitamos <span class="math inline">\(H_0\)</span> quando os dados oferecem evidência contrária a este hipótese. Assim, buscamos que as probabilidades de cometer um erro tipo I ou um erro tipo II sejam baixas.</p>
 <p>Uma outra observação importante é que, em geral, não sabemos se cometemos um erro em um teste de hipótese. Para saber se <span class="math inline">\(H_0\)</span> é verdadeiro ou não, seria necessária observar a população. Como apenas somos capazes de observar a amostra, não somos capazes de determinar se <span class="math inline">\(H_0\)</span> é verdadeiro ou não. Assim, não sabemos se o resultado do teste de hipótese foi um acerto ou um erro.</p>
 <p>Apesar da limitação acima, podemos controlar as probabilidades de erro tipo I e II de um teste. Isto é, podemos desenvolver testes que, antes de observar o banco de dados, tenham uma baixa probabilidade de cometer um erro.</p>
@@ -40,6 +40,26 @@ output: html_document
 </div>
 <div id="exemplo-normal-com-variancia-conhecida" class="section level2">
 <h2>Exemplo: normal com variância conhecida</h2>
-<p>Considere que <span class="math inline">\(X_{1},\ldots,X_{n}\)</span> são observações independentes e tais que <span class="math inline">\(X_{i} \sim N(\mu,\sigma_0^2)\)</span>, onde <span class="math inline">\(\sigma_0^2\)</span> é conhecido. Por exemplo, <span class="math inline">\(X_i\)</span> pode ser o peso da <span class="math inline">\(i\)</span>-ésima vaca alimentada com uma determinada ração. Deseja-se provar que o peso médio de vacas alimentadas com esta ração seja maior que <span class="math inline">\(500 kg\)</span>, ou seja, a hipótese nula é <span class="math inline">\(H_0: \mu \leq 500\)</span>.</p>
+<p>Considere que <span class="math inline">\(X_{1},\ldots,X_{n}\)</span> são observações independentes e tais que <span class="math inline">\(X_{i} \sim N(\mu,\sigma_0^2)\)</span>, onde <span class="math inline">\(\sigma_0^2\)</span> é conhecido. Por exemplo, <span class="math inline">\(X_i\)</span> pode ser o peso da <span class="math inline">\(i\)</span>-ésima vaca alimentada com uma determinada ração. Deseja-se provar que o peso médio de vacas alimentadas com esta ração é maior do que <span class="math inline">\(500 kg\)</span>, ou seja, a hipótese nula é <span class="math inline">\(H_0: \mu \leq 500\)</span>.</p>
+<p>Para capturar o quanta a evidência os dados trazem contra <span class="math inline">\(H_0\)</span>, podemos calcular o quanto a média amostral supera o valor de <span class="math inline">\(500\)</span>, isto é, <span class="math inline">\(\bar{X}-500\)</span>. Gostaríamos de rejeitar a hipótese nula quando <span class="math inline">\(\bar{X}\)</span> é muito maior que <span class="math inline">\(500\)</span>, isto é, <span class="math inline">\(\bar{X}-500 &gt; c\)</span>, onde <span class="math inline">\(c\)</span> é escolhido de forma a controlar o erro tipo I. A seguir, veremos como realizar este controle.</p>
+<p>O erro tipo I é a probabilidade de rejeitar a hipótese nula quando ela é verdadeira. Isto é, para obter o erro tipo I, queremos calcular <span class="math inline">\(P(\bar{X} - 500 &gt; c)\)</span> sob <span class="math inline">\(H_0\)</span>. Especificamente, gostaríamos que <span class="math inline">\(P(\bar{X} - 500 &gt; c) \leq \alpha\)</span> sob <span class="math inline">\(H_0\)</span>. Para realizar esta desigualdade, note que decorre das propriedades da distribuição normal que, sob o valor extremo o extremo da hipótese nula (<span class="math inline">\(\mu = 500\)</span>), temos que <span class="math inline">\(\bar{X}-500 \sim N\left(0,\frac{\sigma_0^2}{n}\right)\)</span>. Assim, utilizando a padronização da distribuição normal, obtemos que se <span class="math inline">\(\mu = 500\)</span>, <span class="math display">\[
+ Z := \frac{\bar{X}-500}{\sqrt{\frac{\sigma_0^2}{n}}} \sim N(0, 1)
+\]</span> Portanto, <span class="math display">\[
+\begin{align*}
+ P(\bar{X}-500 &gt; c)
+ &amp;= P\left(\frac{\bar{X}-500}{\sqrt{\frac{\sigma_0^2}{n}}} &gt; \frac{\sqrt{n}c}{\sigma_0}\right) \\
+ &amp;= P\left(Z &gt; \frac{\sqrt{n}c}{\sigma_0}\right) \\
+ &amp;= 1 - P\left(Z \leq \frac{\sqrt{n}c}{\sigma_0}\right) \\
+ &amp;= 1 - \text{pnorm}\left(\frac{\sqrt{n}c}{\sigma_0}\right)
+\end{align*}
+\]</span> Para controlar o erro tipo <span class="math inline">\(I\)</span>, desejamos que sob <span class="math inline">\(H_0\)</span>, <span class="math inline">\(P(\bar{X}-500 &gt; c) = \alpha\)</span>. Utilizamos as equações acima, obtemos <span class="math display">\[
+\alpha &amp;= 1 - \text{pnorm}\left(\frac{\sqrt{n}c}{\sigma_0}\right) \\
+1- \alpha &amp;= \text{pnorm}\left(\frac{\sqrt{n}c}{\sigma_0}\right) \\
+\text{qnorm}(1-\alpha) 
+&amp;=  \text{qnorm}\left(\text{pnorm}\left(\frac{\sqrt{n}c}{\sigma_0}\right)\right) \\
+\text{qnorm}(1-\alpha) 
+&amp;= \frac{\sqrt{n}c}{\sigma_0}
+c &amp;= \frac{\text{qnorm}(1-\alpha)\sigma_0}{\sqrt{n}}
+\]</span></p>
 </div>
 </div>
