@@ -62,7 +62,7 @@ output: html_document
 &amp;= \frac{\sqrt{n}c}{\sigma_0} \\
 \frac{\text{qnorm}(1-\alpha)\sigma_0}{\sqrt{n}} &amp;= c
 \end{align*}
-\]</span> Assim, para controlar o erro tipo I em <span class="math inline">\(\alpha\)</span>, rejeitamos a a hipótese nula <span class="math inline">\(\mu \leq 500\)</span> quando <span class="math inline">\(\bar{X}-500 &gt; \frac{\text{qnorm(1-\alpha)\sigma_0}}{\sqrt{n}}\)</span>.</p>
+\]</span> Assim, para controlar o erro tipo I em <span class="math inline">\(\alpha\)</span>, rejeitamos a a hipótese nula <span class="math inline">\(H_0:\mu \leq 500\)</span> quando <span class="math display">\[\bar{X}-500 &gt; \frac{\text{qnorm}(1-\alpha)\sigma_0}{\sqrt{n}}.\]</span></p>
 <p>Por exemplo, considere que observamos <span class="math inline">\(9\)</span> vacas alimentadas com a ração de interesse. Sabemos que o desvio padrão nos pesos destas vacas é de <span class="math inline">\(50 kg\)</span> e, portanto, o peso de cada vaca é <span class="math inline">\(X_i \sim N(\mu, 50)\)</span>. O peso média destas foi de <span class="math inline">\(530\)</span>. Se desejamos testar a hipótese <span class="math inline">\(H_0: \mu \leq 500\)</span> a um nível de <span class="math inline">\(\alpha = 5\%\)</span>, podemos realizar os cálculos no <strong>R</strong> da seguinte forma:</p>
 <pre class="r"><code>mu0 = 500
 n = 9

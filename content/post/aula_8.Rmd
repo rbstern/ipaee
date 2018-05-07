@@ -164,8 +164,8 @@ $$
 \end{align*}
 $$
 Assim, para controlar o erro tipo I em $\alpha$,
-rejeitamos a a hipótese nula $\mu \leq 500$ quando
-$\bar{X}-500 > \frac{\text{qnorm(1-\alpha)\sigma_0}}{\sqrt{n}}$.
+rejeitamos a a hipótese nula $H_0:\mu \leq 500$ quando
+$$\bar{X}-500 > \frac{\text{qnorm}(1-\alpha)\sigma_0}{\sqrt{n}}.$$
 
 Por exemplo, considere que observamos $9$ vacas
 alimentadas com a ração de interesse.
