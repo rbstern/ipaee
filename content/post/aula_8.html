@@ -1,5 +1,5 @@
 ---
-title: "Aula 8 - Conceitos de testes de hipótese"
+title: "Aulas 8 e 9 - Conceitos de testes de hipótese"
 author: "Rafael Bassi Stern"
 date: 2018-04-18
 output: html_document
@@ -53,13 +53,47 @@ output: html_document
  &amp;= 1 - \text{pnorm}\left(\frac{\sqrt{n}c}{\sigma_0}\right)
 \end{align*}
 \]</span> Para controlar o erro tipo <span class="math inline">\(I\)</span>, desejamos que sob <span class="math inline">\(H_0\)</span>, <span class="math inline">\(P(\bar{X}-500 &gt; c) = \alpha\)</span>. Utilizamos as equações acima, obtemos <span class="math display">\[
+\begin{align*}
 \alpha &amp;= 1 - \text{pnorm}\left(\frac{\sqrt{n}c}{\sigma_0}\right) \\
 1- \alpha &amp;= \text{pnorm}\left(\frac{\sqrt{n}c}{\sigma_0}\right) \\
 \text{qnorm}(1-\alpha) 
 &amp;=  \text{qnorm}\left(\text{pnorm}\left(\frac{\sqrt{n}c}{\sigma_0}\right)\right) \\
 \text{qnorm}(1-\alpha) 
-&amp;= \frac{\sqrt{n}c}{\sigma_0}
-c &amp;= \frac{\text{qnorm}(1-\alpha)\sigma_0}{\sqrt{n}}
-\]</span></p>
+&amp;= \frac{\sqrt{n}c}{\sigma_0} \\
+\frac{\text{qnorm}(1-\alpha)\sigma_0}{\sqrt{n}} &amp;= c
+\end{align*}
+\]</span> Assim, para controlar o erro tipo I em <span class="math inline">\(\alpha\)</span>, rejeitamos a a hipótese nula <span class="math inline">\(\mu \leq 500\)</span> quando <span class="math inline">\(\bar{X}-500 &gt; \frac{\text{qnorm(1-\alpha)\sigma_0}}{\sqrt{n}}\)</span>.</p>
+<p>Por exemplo, considere que observamos <span class="math inline">\(9\)</span> vacas alimentadas com a ração de interesse. Sabemos que o desvio padrão nos pesos destas vacas é de <span class="math inline">\(50 kg\)</span> e, portanto, o peso de cada vaca é <span class="math inline">\(X_i \sim N(\mu, 50)\)</span>. O peso média destas foi de <span class="math inline">\(530\)</span>. Se desejamos testar a hipótese <span class="math inline">\(H_0: \mu \leq 500\)</span> a um nível de <span class="math inline">\(\alpha = 5\%\)</span>, podemos realizar os cálculos no <strong>R</strong> da seguinte forma:</p>
+<pre class="r"><code>mu0 = 500
+n = 9
+sigma0 = 50
+media = 530
+alpha = 0.05
+qnorm(1-alpha)</code></pre>
+<pre><code>## [1] 1.644854</code></pre>
+<pre class="r"><code>c = qnorm(1-alpha) * sigma0 / sqrt(n)
+c</code></pre>
+<pre><code>## [1] 27.41423</code></pre>
+<pre class="r"><code>media - mu0 &gt; c</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>Como a média amostral supera <span class="math inline">\(c\)</span> a um nível de <span class="math inline">\(0.05\)</span>, rejeitamos a hipótese nula. Note que, se exercemos um maior controle sobre o erro tipo I, então não rejeitaremos a hipótese nula. Por exemplo, se tomássemos <span class="math inline">\(\alpha = 0.01\)</span>, então o teste de hipótese seria mais conservador e não rejeitaríamos a hipótese nula.</p>
+<pre class="r"><code>alpha = 0.01
+qnorm(1-alpha)</code></pre>
+<pre><code>## [1] 2.326348</code></pre>
+<pre class="r"><code>c = qnorm(1-alpha) * sigma0 / sqrt(n)
+c</code></pre>
+<pre><code>## [1] 38.77246</code></pre>
+<pre class="r"><code>media - mu0  &gt; c</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 </div>
+<div id="p-valor" class="section level2">
+<h2>p-valor</h2>
+</div>
+</div>
+<div id="exercicios" class="section level1">
+<h1>Exercícios</h1>
+<ol style="list-style-type: decimal">
+<li><p>Descreva em suas próprias palavras: teste de hipótese, erro tipo I, erro tipo II, nível de significância e p-valor</p></li>
+<li><p>Considere o caso da normal com variância conhecida. Ou seja, cada observação é tal que <span class="math inline">\(X_{i} \sim N(\mu,\sigma_0^2)\)</span>. Considere que desejamos testar <span class="math inline">\(H_0: \mu \geq \mu_0\)</span>. Neste caso, faria sentido calcular como evidência contra <span class="math inline">\(H_0\)</span> o quanto <span class="math inline">\(\bar{X}\)</span> é menor que <span class="math inline">\(\mu_0\)</span>? Se sim, rejeitaríamos <span class="math inline">\(H_0\)</span> quando <span class="math inline">\(\bar{X}-\mu_0 &lt; c\)</span>. Utilizando passos análogos ao da seção da normal com variância conhecida, o valor de <span class="math inline">\(c\)</span> tal que a probabilidade de erro tipo I é controlada por <span class="math inline">\(\alpha\)</span>. Determine o p-valor deste teste.</p></li>
+</ol>
 </div>

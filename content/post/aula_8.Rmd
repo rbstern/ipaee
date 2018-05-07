@@ -1,5 +1,5 @@
 ---
-title: "Aula 8 - Conceitos de testes de hipótese"
+title: "Aulas 8 e 9 - Conceitos de testes de hipótese"
 author: "Rafael Bassi Stern"
 date: 2018-04-18
 output: html_document
@@ -153,12 +153,69 @@ desejamos que sob $H_0$,
 $P(\bar{X}-500 > c) = \alpha$.
 Utilizamos as equações acima, obtemos
 $$
+\begin{align*}
 \alpha &= 1 - \text{pnorm}\left(\frac{\sqrt{n}c}{\sigma_0}\right) \\
 1- \alpha &= \text{pnorm}\left(\frac{\sqrt{n}c}{\sigma_0}\right) \\
 \text{qnorm}(1-\alpha) 
 &=  \text{qnorm}\left(\text{pnorm}\left(\frac{\sqrt{n}c}{\sigma_0}\right)\right) \\
 \text{qnorm}(1-\alpha) 
-&= \frac{\sqrt{n}c}{\sigma_0}
-c &= \frac{\text{qnorm}(1-\alpha)\sigma_0}{\sqrt{n}}
+&= \frac{\sqrt{n}c}{\sigma_0} \\
+\frac{\text{qnorm}(1-\alpha)\sigma_0}{\sqrt{n}} &= c
+\end{align*}
 $$
+Assim, para controlar o erro tipo I em $\alpha$,
+rejeitamos a a hipótese nula $\mu \leq 500$ quando
+$\bar{X}-500 > \frac{\text{qnorm(1-\alpha)\sigma_0}}{\sqrt{n}}$.
 
+Por exemplo, considere que observamos $9$ vacas
+alimentadas com a ração de interesse.
+Sabemos que o desvio padrão nos pesos destas vacas é de $50 kg$
+e, portanto, o peso de cada vaca é $X_i \sim N(\mu, 50)$.
+O peso média destas foi de $530$.
+Se desejamos testar a hipótese $H_0: \mu \leq 500$ a
+um nível de $\alpha = 5\%$, podemos
+realizar os cálculos no **R** da seguinte forma:
+```{r}
+mu0 = 500
+n = 9
+sigma0 = 50
+media = 530
+alpha = 0.05
+qnorm(1-alpha)
+c = qnorm(1-alpha) * sigma0 / sqrt(n)
+c
+media - mu0 > c
+```
+Como a média amostral supera $c$ a
+um nível de $0.05$, rejeitamos a hipótese nula.
+Note que, se exercemos um maior controle sobre
+o erro tipo I, então não rejeitaremos
+a hipótese nula. Por exemplo,
+se tomássemos $\alpha = 0.01$,
+então o teste de hipótese seria mais conservador e
+não rejeitaríamos a hipótese nula.
+```{r}
+alpha = 0.01
+qnorm(1-alpha)
+c = qnorm(1-alpha) * sigma0 / sqrt(n)
+c
+media - mu0  > c
+```
+
+## p-valor
+
+# Exercícios
+
+1. Descreva em suas próprias palavras: teste de hipótese,
+erro tipo I, erro tipo II, nível de significância e p-valor
+
+2. Considere o caso da normal com variância conhecida.
+Ou seja, cada observação é tal que $X_{i} \sim N(\mu,\sigma_0^2)$.
+Considere que desejamos testar $H_0: \mu \geq \mu_0$.
+Neste caso, faria sentido calcular como evidência contra $H_0$
+o quanto $\bar{X}$ é menor que $\mu_0$?
+Se sim, rejeitaríamos $H_0$ quando $\bar{X}-\mu_0 < c$.
+Utilizando passos análogos ao da seção da normal com variância conhecida,
+o valor de $c$ tal que 
+a probabilidade de erro tipo I é controlada por $\alpha$.
+Determine o p-valor deste teste.
