@@ -1,7 +1,7 @@
 ---
 title: "Aulas 8 e 9 - Conceitos de testes de hipótese"
 author: "Rafael Bassi Stern"
-date: 2018-04-18
+date: 2018-04-24
 output: html_document
 ---
 
@@ -100,7 +100,7 @@ o erro tipo I seja menor que um valor pré-determinado, $\alpha$.
 É comum que $\alpha$ seja chamado de 
 **nível de significância** do teste.
 
-## Exemplo: normal com variância conhecida
+### Exemplo: normal com variância conhecida
 
 Considere que $X_{1},\ldots,X_{n}$ são 
 observações independentes e tais que 
@@ -110,39 +110,39 @@ $X_i$ pode ser o peso da $i$-ésima vaca
 alimentada com uma determinada ração.
 Deseja-se provar que o peso médio de
 vacas alimentadas com esta ração é maior do que
-$500 kg$, ou seja, a hipótese nula é
-$H_0: \mu \leq 500$.
+$\mu_0 kg$, ou seja, a hipótese nula é
+$H_0: \mu_0 \leq 500$.
 
 Para capturar o quanta a evidência 
 os dados trazem contra $H_0$, podemos
 calcular o quanto a média amostral supera
-o valor de $500$, isto é, 
-$\bar{X}-500$. Gostaríamos de rejeitar
-a hipótese nula quando $\bar{X}$ é muito maior que $500$,
-isto é, $\bar{X}-500 > c$, onde $c$ é 
+o valor de $\mu_0$, isto é, 
+$\bar{X}-\mu_0$. Gostaríamos de rejeitar
+a hipótese nula quando $\bar{X}$ é muito maior que $\mu_0$,
+isto é, $\bar{X}-\mu_0 > c$, onde $c$ é 
 escolhido de forma a controlar o erro tipo I.
 A seguir, veremos como realizar este controle.
 
 O erro tipo I é a probabilidade de rejeitar
 a hipótese nula quando ela é verdadeira.
 Isto é, para obter o erro tipo I, 
-queremos calcular $P(\bar{X} - 500 > c)$ sob $H_0$.
+queremos calcular $P(\bar{X} - \mu_0 > c)$ sob $H_0$.
 Especificamente, gostaríamos que 
-$P(\bar{X} - 500 > c) \leq \alpha$ sob $H_0$.
+$P(\bar{X} - \mu_0 > c) \leq \alpha$ sob $H_0$.
 Para realizar esta desigualdade, note que
 decorre das propriedades da distribuição normal que, 
-sob o valor extremo o extremo da hipótese nula ($\mu = 500$),
-temos que $\bar{X}-500 \sim N\left(0,\frac{\sigma_0^2}{n}\right)$.
+sob o valor extremo o extremo da hipótese nula ($\mu = \mu_0$),
+temos que $\bar{X}-\mu_0 \sim N\left(0,\frac{\sigma_0^2}{n}\right)$.
 Assim, utilizando a padronização da distribuição normal, obtemos que
 se $\mu = 500$,
 $$
- Z := \frac{\bar{X}-500}{\sqrt{\frac{\sigma_0^2}{n}}} \sim N(0, 1)
+ Z := \frac{\bar{X}-\mu_0}{\sqrt{\frac{\sigma_0^2}{n}}} \sim N(0, 1)
 $$
 Portanto,
 $$
 \begin{align*}
- P(\bar{X}-500 > c)
- &= P\left(\frac{\bar{X}-500}{\sqrt{\frac{\sigma_0^2}{n}}} > \frac{\sqrt{n}c}{\sigma_0}\right) \\
+ P(\bar{X}-\mu_0 > c)
+ &= P\left(\frac{\bar{X}-\mu_0}{\sqrt{\frac{\sigma_0^2}{n}}} > \frac{\sqrt{n}c}{\sigma_0}\right) \\
  &= P\left(Z > \frac{\sqrt{n}c}{\sigma_0}\right) \\
  &= 1 - P\left(Z \leq \frac{\sqrt{n}c}{\sigma_0}\right) \\
  &= 1 - \text{pnorm}\left(\frac{\sqrt{n}c}{\sigma_0}\right)
@@ -150,7 +150,7 @@ $$
 $$
 Para controlar o erro tipo $I$,
 desejamos que sob $H_0$,
-$P(\bar{X}-500 > c) = \alpha$.
+$P(\bar{X}-\mu_0 > c) = \alpha$.
 Utilizamos as equações acima, obtemos
 $$
 \begin{align*}
@@ -164,8 +164,8 @@ $$
 \end{align*}
 $$
 Assim, para controlar o erro tipo I em $\alpha$,
-rejeitamos a a hipótese nula $H_0:\mu \leq 500$ quando
-$$\bar{X}-500 > \frac{\text{qnorm}(1-\alpha)\sigma_0}{\sqrt{n}}.$$
+rejeitamos a a hipótese nula $H_0:\mu \leq \mu_0$ quando
+$$\bar{X}-\mu_0 > \frac{\text{qnorm}(1-\alpha)\sigma_0}{\sqrt{n}}.$$
 
 Por exemplo, considere que observamos $9$ vacas
 alimentadas com a ração de interesse.
@@ -204,12 +204,84 @@ media - mu0  > c
 
 ## p-valor
 
+Na amostra estudada no exemplo anterior, 
+verificamos que se fixássemos $\alpha = 0.05$,
+então o teste rejeitaria a hipótese nula.
+Por outro lado, se fixássemos $\alpha = 0.01$,
+o teste não rejeitaria a hipótese nula.
+Isto ocorre pois quanto menor o valor de $\alpha$,
+mais o teste fica conservador em rejeitar $H_0$.
+Decorre deste comportamento que,
+enquanto que para valores "grandes" de $\alpha$, 
+o teste rejeitará $H_0$, 
+para valores "pequenos" de $\alpha$
+o teste não rejeitará $H_0$.
+
+Um valor de interesse é o menor $\alpha$
+tal que o teste rejeita $H_0$ para a amostra observada.
+Este $\alpha^*$ é comumente chamado de **p-valor**.
+Este valor pode ser muito útil
+para compartilhar resultados.
+Note que, para a amostra observada,
+se um pesquisador fixar um $\alpha < \alpha^*$,
+então ele rejeitará $H_0$. Por outro lado,
+se ele fixar $\alpha > \alpha^*$, 
+então não rejeitará $H_0$. Assim,
+somente comparando o p-valor com o $\alpha$ fixado,
+é possível saber o resultado do teste.
+Portanto, mesmo pesquisadores fixando
+níveis de significância diferentes podem
+saber o resultado do teste de hipótese apenas
+observando o p-valor.
+
+### p-valor na normal com variância conhecida
+
+No exemplo do teste de hipótese para
+a média da normal com variância conhecida, 
+lembre que $H_0: \mu \leq \mu_0$ é 
+rejeitado para todos os valores
+de $\alpha$ tais que:
+
+$$\bar{X}-\mu_0 > \frac{\text{qnorm}(1-\alpha)\sigma_0}{\sqrt{n}}$$
+Portanto, o menor valor de $\alpha$ tal que $H_0$
+é rejeitado, $\alpha^*$ é tal que
+$$\bar{X}-\mu_0 = \frac{\text{qnorm}(1-\alpha^*)\sigma_0}{\sqrt{n}}$$
+Com algumas manipulações aritméticas podemos determinar
+o valor de $\alpha^*$, isto é, o p-valor:
+$$
+\begin{align*}
+ \bar{X}-\mu_0 
+ &= \frac{\text{qnorm}(1-\alpha^*)\sigma_0}{\sqrt{n}} \\
+ \frac{\sqrt{n}(\bar{X}-\mu_0)}{\sigma_0} 
+ &= \text{qnorm}(1-\alpha^*) \\
+ \text{pnorm}\left(\frac{\sqrt{n}(\bar{X}-\mu_0)}{\sigma_0}\right)
+ &= \text{pnorm}(\text{qnorm}(1-\alpha^*)) \\
+ \text{pnorm}\left(\frac{\sqrt{n}(\bar{X}-\mu_0)}{\sigma_0}\right)
+ &= 1 - \alpha^* \\
+ 1 - \text{pnorm}\left(\frac{\sqrt{n}(\bar{X}-\mu_0)}{\sigma_0}\right)
+ &= \alpha^*
+\end{align*}
+$$
+Portanto, o p-valor neste caso é
+o $\alpha^*$ tal que
+$$
+\alpha^* = 1 - \text{pnorm}\left(\frac{\sqrt{n}(\bar{X}-\mu_0)}{\sigma_0}\right)
+$$
+
 # Exercícios
 
 1. Descreva em suas próprias palavras: teste de hipótese,
-erro tipo I, erro tipo II, nível de significância e p-valor
+erro tipo I, erro tipo II, nível de significância e p-valor.
 
-2. Considere o caso da normal com variância conhecida.
+2. Um cientista mede um objeto $9$ vezes com um paquímetro e
+observa os valores em mm de: 
+1.2, 1.4, 1.7, 1.3, 1.5, 1.1, 1.8, 1.4, 1.1.
+Se as medições com o paquímetro tem desvio padrão de 0.2 mm,
+o pesquisador consegue rejeitar a hipótese de que
+o comprimento do objeto é menor do que $1.3 mm$?
+Qual o p-valor para esta hipótese na amostra observada?
+
+3. Considere o caso da normal com variância conhecida.
 Ou seja, cada observação é tal que $X_{i} \sim N(\mu,\sigma_0^2)$.
 Considere que desejamos testar $H_0: \mu \geq \mu_0$.
 Neste caso, faria sentido calcular como evidência contra $H_0$
@@ -218,4 +290,11 @@ Se sim, rejeitaríamos $H_0$ quando $\bar{X}-\mu_0 < c$.
 Utilizando passos análogos ao da seção da normal com variância conhecida,
 o valor de $c$ tal que 
 a probabilidade de erro tipo I é controlada por $\alpha$.
+Determine o p-valor deste teste.
+
+4. Considere novamente o caso da normal com variância conhecida,
+ou seja, cada observação é tal que $X_{i} \sim N(\mu,\sigma_0^2)$.
+A medida $|\bar{X}-\mu_0|$ captura evidência contra $H_0: \mu = \mu_0$?
+Se desejamos rejeitar $H_0$ quando $|\bar{X}-\mu_0| > c$,
+determine o valor de $c$ que controla o erro tipo I em $\alpha$.
 Determine o p-valor deste teste.

@@ -1,0 +1,27 @@
+---
+title: "Aula 10: Testes para uma população"
+author: "Rafael Bassi Stern"
+date: 2018-04-26
+output: html_document
+---
+
+# Exercícios
+
+1. Para que um rio tenha água salubre,
+a concentração de uma determinada substância deve
+ser inferior a 10 mg/L. Uma amostra de água foi
+tomada em $9$ pontos distintos do rio,
+observando-se concentrações da substância em
+mg/L de: 2, 2, 5, 6, 6, 7, 8, 8, 12.
+Deseja-se testar se a água do rio e salubre.
+
+  a. Descreve os erros que podem ser cometidos neste teste. Qual o mais grave?
+  b. Qual a hipótese nula a ser testada?
+  c. Teste a hipótese nula a um nível de significância de $\alpha = 0.05$.
+  d. Calcule o p-valor deste teste.
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+alpha = c(0.025, 0.05, 0.95, 0.975)
+valores = data.frame(alpha = alpha, `qt(alpha, df=8)` = round(qt(alpha, df = 8),2))
+DT::datatable(valores, rownames = FALSE, options = list(dom = 'ti'))
+```
