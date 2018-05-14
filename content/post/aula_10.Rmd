@@ -1,9 +1,105 @@
 ---
-title: "Aula 10: Testes para uma população"
+title: "Aula 10 e 11: Testes para uma população"
 author: "Rafael Bassi Stern"
-date: 2018-04-26
+date: 2018-04-30
 output: html_document
 ---
+
+# Testes para uma população
+
+Considere uma amostra independente,
+$X_{1}, \ldots, X_{n}$ tal que
+$X_{i} \sim N(\mu, \sigma^2)$,
+onde $\mu$ e $\sigma^2$ são desconhecidos.
+Note que, ao contrário das aulas anteriores,
+consideramos que $\sigma^2$ é desconhecido.
+Neste contexto, comumente estamos interessados
+em testar as hipóteses:
+$$
+\begin{align*}
+ H_0:
+ \begin{cases}
+  (a) \text{ } \mu \leq \mu_0 & \\
+  (b) \text{ } \mu \geq \mu_0 & \\
+  (c) \text{ } \mu = \mu_0 &
+ \end{cases}
+\end{align*}
+$$
+Similarmente às aulas passadas,
+desejamos rejeitar $H_0$ para
+os casos (a), (b) e (c) quando, respectivamente,
+$$
+\begin{cases}
+(a) \text{ } \bar{X}-\mu_0 > k_{a} & \\
+(b) \text{ } \bar{X}-\mu_0 < k_{b} & \\
+(c) \text{ } |\bar{X}-\mu_{0}| > k_{c}
+\end{cases}
+$$
+
+Nestes testes,
+determinamos os valores de
+$k_{a}$, $k_{b}$ e $k_{c}$ utilizando
+a condição de que a probabilidade
+de erro tipo $I$ é $\alpha$.
+Para usar esta condição,
+em aulas anteriores padronizamos
+a quantidade $\bar{X}-\mu_0$ 
+dividindo-a por $\frac{\sigma}{n}$.
+Contudo, agora consideramos que 
+$\sigma$ é desconhecido e, portanto,
+não é possível realizar esta padronização.
+Ao contrário, utilizamos a padronização
+alternativa de que, quando $\mu = \mu_0$,
+$\frac{\sqrt{n-1}(\bar{X}-\mu_0)}{S} \sim T_{n-1}$.
+Assim, tomando $\mu = \mu_0$, calculamos a
+probabilidade de erro tipo I da seguinte forma
+$$
+ \begin{align*}
+ P(\bar{X}-\mu_0 > k_a)
+ &= P\left(\frac{\sqrt{n-1}(\bar{X}-\mu_0)}{S} > \frac{\sqrt{n-1}k_a}{S}\right) \\
+ &= P\left(T_{n-1} > \frac{\sqrt{n-1}k_a}{S} \right) \\
+ &= 1- pt\left(\frac{\sqrt{n-1}k_a}{S}, df = n-1\right)
+ \end{align*}
+$$
+Semelhamentemente, obtemos
+$$
+\begin{align*}
+ P(\bar{X}-\mu_0 < k_b)
+ &= pt\left(\frac{\sqrt{n-1}k_b}{S}, df = n-1\right) \\
+ P(|\bar{X}-\mu_0| > k_c)
+ &= 2pt\left(-\frac{\sqrt{n-1}k_c}{S}, df = n-1\right)
+\end{align*}
+$$
+Os valores de $k_a$, $k_b$ e $k_C$
+são determinados de forma que,
+sob a hipótese nula, a
+probabilidade de rejeição seja $\alpha$.
+Assim, por exemplo, para $H_0: \mu \leq \mu_0$, 
+obtemos a equação
+$$
+\begin{align*}
+ 1- pt\left(\frac{\sqrt{n-1}k_a}{S}, df = n-1\right) &= \alpha \\
+ pt\left(\frac{\sqrt{n-1}k_a}{S}, df = n-1\right) &= 1-\alpha \\
+ \frac{\sqrt{n-1}k_a}{S} &= qt(1-\alpha, df=n-1) \\
+ k_a &= \frac{qt(1-\alpha, df=n-1) S}{\sqrt{n-1}}
+\end{align*}
+$$
+Similarmente, obtemos
+$$
+\begin{align*}
+ k_b &= \frac{qt(\alpha, df=n-1) S}{\sqrt{n-1}} \\
+ k_c &= \frac{qt(1-0.5\alpha, df=n-1) S}{\sqrt{n-1}}
+\end{align*}
+$$
+Portanto, as hipóteses em (a), (b) e (c)
+são rejeitadas, respectivamente, quando
+$$
+\begin{cases}
+ \text{(a) } \bar{X}-\mu_0 > \frac{qt(1-\alpha, df=n-1) S}{\sqrt{n-1}} \\
+ \text{(b) } \bar{X}-\mu_0 < \frac{qt(\alpha, df=n-1) S}{\sqrt{n-1}} \\
+ \text{(c) } |\bar{X}-\mu_0| > \frac{qt(1-0.5\alpha, df=n-1) S}{\sqrt{n-1}}
+\end{cases}
+$$
 
 # Exercícios
 
@@ -22,6 +118,26 @@ Deseja-se testar se a água do rio e salubre.
 
 ```{r echo = FALSE, message = FALSE, warning = FALSE}
 alpha = c(0.025, 0.05, 0.95, 0.975)
-valores = data.frame(alpha = alpha, `qt(alpha, df=8)` = round(qt(alpha, df = 8),2))
-DT::datatable(valores, rownames = FALSE, options = list(dom = 'ti'))
+valores = data.frame(alpha = alpha, qt = round(qt(alpha, df = 8),2))
+DT::datatable(valores, rownames = FALSE, options = list(dom = 't'))
+```
+
+2. Considere que $X_{1},\ldots,X_{n}$ são independentes e
+$X_{i} \sim N(\mu,\sigma_0^2)$, onde $\sigma_0^2$ é conhecido.
+Desejamos testar a hipótese $H_0: \mu \leq \mu_0$.
+Note que, a princípio, poderíamos aplicar
+tanto o teste com variância populacional conhecida,
+quanto o teste com variância populacional desconhecida.
+Qual é a vantagem de aplicar o teste com
+variância populacional conhecida?
+Você pode utilizar a seguinte amostra
+onde $\sigma_0^2 = 1$ e $\mu_0 = 0.5$
+para embasar a sua resposta considere que $S = 1$.
+Os seguintes valores podem ser úteis:
+```{r echo = FALSE}
+alpha = c(0.025, 0.05, 0.95, 0.975)
+valores = data.frame(alpha = alpha, qnorm = round(qnorm(alpha), 2))
+DT::datatable(valores, rownames = FALSE, options = list(dom = 't'))
+valores = data.frame(alpha = alpha, qt = round(qt(alpha, df = 8), 2))
+DT::datatable(valores, rownames = FALSE, options = list(dom = 't'))
 ```

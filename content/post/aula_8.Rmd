@@ -223,9 +223,9 @@ Este $\alpha^*$ é comumente chamado de **p-valor**.
 Este valor pode ser muito útil
 para compartilhar resultados.
 Note que, para a amostra observada,
-se um pesquisador fixar um $\alpha < \alpha^*$,
+se um pesquisador fixar um $\alpha > \alpha^*$,
 então ele rejeitará $H_0$. Por outro lado,
-se ele fixar $\alpha > \alpha^*$, 
+se ele fixar $\alpha < \alpha^*$, 
 então não rejeitará $H_0$. Assim,
 somente comparando o p-valor com o $\alpha$ fixado,
 é possível saber o resultado do teste.
