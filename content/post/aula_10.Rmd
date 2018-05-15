@@ -149,7 +149,7 @@ t.test(dados,
        conf.level = 1-alpha)
 ```
 Como o p-valor é $0.42$ e
-nosso alpha é menor que o p-valor,
+$\alpha = 0.05$ é menor que o p-valor,
 não rejeitamos a hipótese de que
 $H_0: \mu = 1.5$.
 
