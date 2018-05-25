@@ -14,7 +14,7 @@ isto indica que existe evidência que você desrespeitou o
 código de ética desta disciplina. Tome cuidado!
 Caso o seu número RA esteja marcado com um (**),
 está provado que você desrespeitou o 
-código de ética desta disciplina e você está reprovado.
+código de ética desta disciplina e você está **reprovado**.
 
 ```{r echo = FALSE}
 `%>%` = magrittr::`%>%`
