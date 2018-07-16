@@ -24,7 +24,7 @@ grade_table = yaml::read_yaml("grades.yaml") %>%
   tidyr::unnest() %>%
   tibble::as.tibble() %>%
   dplyr::arrange(RA) %>%
-  dplyr::mutate(MF = 0.33*P1 + 0.33*P2 + 0.34*P3 + PA)
+  dplyr::mutate(MF = ceiling(10*(0.33*P1 + 0.33*P2 + 0.34*P3 + PA))/10)
 DT::datatable(grade_table,
               escape = FALSE,
               options = list(dom = 'ftip'),
