@@ -40,3 +40,4 @@ grade_table %>%
   ggplot2::geom_boxplot() +
   ggplot2::xlab("avaliação")
 ```
+
